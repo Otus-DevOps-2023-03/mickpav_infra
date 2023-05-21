@@ -26,3 +26,8 @@ User appuser
 
 Теперь, при выполнении команды ssh someinternalhost мы попадаем сразу на внутренний хост
 
+
+bastion_IP = 158.160.56.10
+someinternalhost_IP = 10.128.0.13
+
+
