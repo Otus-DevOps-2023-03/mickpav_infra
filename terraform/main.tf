@@ -4,11 +4,11 @@ terraform {
       source = "yandex-cloud/yandex"
     }
   }
-  required_version = ">= 0.13"
+  required_version = ">= 0.12"
 }
 
 provider "yandex" {
-  token     = "y0_AgAAAAAB_SyYAATuwQAAAADkv4kzeqV86T0ZR1WBbmkH9RznwY__0E0"
+  token     = var.token_id
   cloud_id  = var.cloud_id
   folder_id = var.folder_id
   zone      = var.zone
