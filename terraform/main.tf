@@ -6,28 +6,23 @@ terraform {
   }
   required_version = ">= 0.12"
 }
-
 provider "yandex" {
   token     = var.token_id
   cloud_id  = var.cloud_id
   folder_id = var.folder_id
   zone      = var.zone
 }
-
 resource "yandex_compute_instance" "app" {
   count = var.vm_count
   name  = "reddit-app-${count.index}"
-
   metadata = {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
-
   resources {
     cores         = 2
     memory        = 2
     core_fraction = 5
   }
-
   connection {
     type  = "ssh"
     host  = self.network_interface.0.nat_ip_address
@@ -36,12 +31,10 @@ resource "yandex_compute_instance" "app" {
     # путь до приватного ключа
     private_key = file(var.private_key_path)
   }
-
   provisioner "file" {
     source      = "files/puma.service"
     destination = "/tmp/puma.service"
   }
-
   provisioner "remote-exec" {
     script = "files/deploy.sh"
   }
@@ -51,10 +44,10 @@ resource "yandex_compute_instance" "app" {
       image_id = var.image_id
     }
   }
-
   network_interface {
     # Указан id подсети default-ru-central1-a
     subnet_id = var.subnet_id
     nat       = true
   }
 }
+
