@@ -1,6 +1,10 @@
 variable cloud_id {
   description = "Cloud"
 }
+variable token_id {
+  description = "Token"
+}
+
 variable folder_id {
   description = "Folder"
 }
