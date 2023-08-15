@@ -17,3 +17,4 @@ variable private_key_path {
 variable ssh_user {
   description = "user for ssh connection"
 }
+
