@@ -42,3 +42,10 @@ variable db_disk_image {
   description = "Disk image for redddit base"
   default     = "reddit-db-base"
 }
+variable db_url {
+  description = "URL for DB"  
+}
+variable ssh_user {
+  description = "ssh user"
+  default = "appuser"
+}
