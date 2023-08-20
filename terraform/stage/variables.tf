@@ -42,12 +42,10 @@ variable db_disk_image {
   description = "Disk image for redddit base"
   default     = "reddit-db-base"
 }
-variable access_key {
-  description = "s3 bucket access key"
+variable db_url {
+  description = "URL for DB"  
 }
-variable secret_key {
-  description = "s3 bucket secret key"
-}
-variable bucket_name {
-  description = "s3 bucket name"
+variable ssh_user {
+  description = "ssh user"
+  default = "appuser"
 }
